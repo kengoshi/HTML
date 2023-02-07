@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keydown(e)</title>
+  <script>
+    function keydown(e) {
+      var s ="";
+      switch(e.keyCode) {
+        case 37:s="←";break;
+        case 38:s="↑";break;
+        case 39:s="→";break;
+        case 40:s="↓";break;
+        default:s="それ以外";break;
+      }
+       document.getElementById("info").innerHTML=s;
+    }
+    window.addEventListener('keydown',keydown);
+  </script>
+</head>
+<body>
+  <p id="info"></p>
+</body>
+</html>

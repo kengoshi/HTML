@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>celsius degree</title>
+  <script>
+    function c2f(c){
+      var f=(9/5)*c+32;
+      return Math.floor(f)
+      // 小数点以下の丸め
+    }
+    function convert(){
+      var c = document.getElementById("celsius").value;
+      // 摂氏の変数定義
+      var f = c2f(c);
+      // 摂氏から華氏の変換。c2f(c)関数のfとは別物（ローカル変数だから）
+      var s ="摂氏：" + c + "度　華氏：" + f + "度";
+      document.getElementById("result").innerHTML=s;
+    }
+  </script>
+</head>
+<body>
+  <input type="range" id="celsius" min="0" max="100" onchange="convert()">
+  <p id="result"></p>
+</body>
+</html>

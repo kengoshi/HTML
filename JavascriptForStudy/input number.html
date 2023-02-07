@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input number</title>
+  <script>
+    function checkEven(){
+      var v = document.getElementById("number").value;
+      var r = document.getElementById("result");
+      if(isNaN(v)){
+        r.textContent=v+"は数字ではありません";
+      } else{
+        // r.textContent=v+"は数字です";
+        r.textContent=(v%2==0)?"偶数":"奇数";
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="number"/>
+   <button onclick="checkEven()">入力判定</button>
+   <p id="result"></p>
+</body>
+</html>
