@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      position: absolute;
+      width:60px;
+      height: 25px;
+      color: green;
+      top: 50px;
+    }
+  </style>
+  
+  <script>
+    var ufo;
+    function init(){
+      window.addEventListener("keydown",keydown);/* イベントハンドラー。キー押下時にkeydown()起動 */
+      ufo = new UFO(document.getElementById("ufo"),100);/* ufoの定義 new があるので関数ではなくオブジェクト生成。つまりコンストラクタ。第一引数がDOM要素、第二引数がｘ座標の値 */
+    }
+    function keydown(e){
+      if(e.keyCode == 37){
+        ufo.moveLeft();/* ufoオブジェクトでmoveLeftメソッド呼び出し */
+      }else if(e.keyCode == 39){
+        ufo.moveRight();/* ufoオブジェクトでmoveRightメソッド呼び出し */
+      }
+    }
+
+    function UFO(_elem, _xpos){ /* 関数オブジェクトufoの中身。関数とは集合体。 */
+      this.elem = _elem;
+      this.xpos = _xpos; /* プロパティ設定。オプジェクトにxposというプロパティを登録し初期値として引数を使うという意味 */
+      this.moveLeft = function(){ /*メソッド。匿名関数。ufoのプロパティxposを１０増減。それをプロパティelemにピクセル単位で入力してる */
+        this.xpos -= 10;
+        this.elem.style.left = this.xpos + "px";
+      }
+      this.moveRight = function(){
+        this.xpos +=10;
+        this.elem.style.left = this.xpos + "px";
+      }
+      this.elem.style.left = this.xpos + "px";
+    }
+  </script>
+</head>
+<body onload="init()"> <!-- onload属性。文書の読み込みが完了したときに関数実行。今回はinit()が実行される -->
+  <div id="ufo"><(ooo)></div>
+</body>
+</html>
